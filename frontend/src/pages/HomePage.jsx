@@ -48,7 +48,7 @@ function HomePage() {
               ) : (
                 <>
                   <Link to="/login">
-                    <button className="px-6 py-2 border-2 border-vanigo-green font-poppins font-semibold text-vanigo-green hover:shadow-2xl hover:bg-vanigo-green hover:text-white transition-all duration-300">
+                    <button className="px-6 py-2 border-2 border-vanigo-green font-poppins font-semibold text-vanigo-green hover:shadow-2xl hover:bg-green-500 hover:text-black transition-all duration-300">
                       Sign In
                     </button>
                   </Link>

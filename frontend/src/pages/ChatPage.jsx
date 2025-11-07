@@ -36,32 +36,36 @@ function ChatPage() {
     }
   };
 
+
+
   const handleSend = async () => {
-    if (!input.trim() || !currentConversation) return;
+  if (!input.trim() || !currentConversation) return;
 
-    const userMessage = {
-      id: Date.now(),
-      content: input,
-      sender: 'USER',
-      createdAt: new Date().toISOString()
-    };
-
-    setMessages([...messages, userMessage]);
-    setInput('');
-    setIsTyping(true);
-
-    try {
-      await conversationService.sendMessage(currentConversation.id, input);
-      
-      const updatedConversation = await conversationService.getConversationById(currentConversation.id);
-      setMessages(updatedConversation.messages || []);
-    } catch (error) {
-      console.error('Failed to send message:', error);
-      alert('Failed to send message. Please try again.');
-    } finally {
-      setIsTyping(false);
-    }
+  const userMessage = {
+    id: Date.now(),
+    content: input,
+    sender: 'USER',
+    createdAt: new Date().toISOString()
   };
+
+  setMessages([...messages, userMessage]);
+  setInput('');
+  setIsTyping(true);
+
+  try {
+    await conversationService.sendMessage(currentConversation.id, input);
+    const updatedConversation = await conversationService.getConversationById(currentConversation.id);
+    setMessages(updatedConversation.messages || []);
+  } catch (error) {
+    console.error('Failed to send message:', error);
+    alert('Failed to send message. Please try again.');
+    setMessages(messages.filter(m => m.id !== userMessage.id));
+  } finally {
+    setIsTyping(false);
+  }
+};
+
+
 
   const handleEndConversation = async () => {
     if (!window.confirm('End this conversation?')) return;

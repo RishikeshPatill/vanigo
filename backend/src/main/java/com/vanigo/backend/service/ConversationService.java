@@ -20,6 +20,9 @@ import java.util.stream.Collectors;
 public class ConversationService {
 
     @Autowired
+    private AIService aiService;
+
+    @Autowired
     private ConversationRepository conversationRepository;
 
     @Autowired
@@ -70,6 +73,7 @@ public class ConversationService {
         }
     }
 
+
     public Conversation endConversation(UUID conversationId, UUID userId, String summary) {
         try {
             Conversation conversation = conversationRepository.findById(conversationId)
@@ -81,6 +85,10 @@ public class ConversationService {
 
             conversation.setActive(false);
             conversation.setEndedAt(LocalDateTime.now());
+
+            if (summary == null || summary.trim().isEmpty()) {
+                summary = aiService.generateSummary(conversation);
+            }
             conversation.setSummary(summary);
 
             return conversationRepository.save(conversation);
@@ -90,6 +98,7 @@ public class ConversationService {
             throw new RuntimeException("Failed to end conversation: " + e.getMessage());
         }
     }
+
 
     private ConversationResponse convertToResponse(Conversation conversation) {
         ConversationResponse response = new ConversationResponse();
