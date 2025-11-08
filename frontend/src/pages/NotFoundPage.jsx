@@ -23,6 +23,11 @@ function NotFoundPage() {
               {authService.isAuthenticated() ? (
                 <>
                   <Link to="/dashboard">
+                  <Link to="/project-details">
+                  <button className="px-6 py-2 border-2 border-vanigo-blue font-poppins font-semibold text-vanigo-blue hover:shadow-2xl hover:bg-vanigo-blue hover:text-white transition-all duration-300">
+                   Project Details
+                  </button>
+                  </Link>
                     <button className="px-6 py-2 border-2 border-black font-poppins font-semibold text-black hover:shadow-2xl hover:bg-black hover:text-white transition-all duration-300">
                       Dashboard
                     </button>

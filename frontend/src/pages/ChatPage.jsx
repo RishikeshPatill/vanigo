@@ -106,6 +106,11 @@ function ChatPage() {
               <img src={logo} alt="VaniGo" className="h-18" />
             </Link>
             <div className="flex gap-4">
+              <Link to="/project-details">
+              <button className="px-6 py-2 border-2 border-vanigo-blue font-poppins font-semibold text-vanigo-blue hover:shadow-2xl hover:bg-vanigo-blue hover:text-white transition-all duration-300">
+               Project Details
+              </button>
+              </Link>
               <Link to="/dashboard">
                 <button className="px-6 py-2 border-2 border-black font-poppins font-semibold text-black hover:shadow-2xl hover:bg-black hover:text-white transition-all duration-300">
                   Dashboard

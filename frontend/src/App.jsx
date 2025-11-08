@@ -10,6 +10,8 @@ import RegisterPage from './pages/auth/RegisterPage';
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage';
 import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import ProtectedRoute from './components/ProtectedRoute';
+import ProjectDetailsPage from './pages/ProjectDetailsPage';
+
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
         <Route path="/conversation/:id" element={<ProtectedRoute><ConversationDetailPage /></ProtectedRoute>} />
         <Route path="/intelligence" element={<ProtectedRoute><IntelligencePage /></ProtectedRoute>} />
-        
+        <Route path="/project-details" element={<ProjectDetailsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

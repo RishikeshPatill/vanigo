@@ -29,6 +29,11 @@ function HomePage() {
             <div className="flex gap-4">
               {isAuthenticated ? (
                 <>
+                   <Link to="/project-details">
+                   <button className="px-6 py-2 border-2 border-vanigo-blue font-poppins font-semibold text-vanigo-blue hover:shadow-2xl hover:bg-blue-500 hover:text-white transition-all duration-300">
+                     Project Details
+                   </button>
+                   </Link>
                   <Link to="/dashboard">
                     <button className="px-6 py-2 border-2 border-black font-poppins font-semibold text-black hover:shadow-2xl hover:bg-black hover:text-white transition-all duration-300">
                       Dashboard
