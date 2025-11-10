@@ -64,7 +64,7 @@ function LoginPage() {
               required
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
-              placeholder="your@email.com"
+              placeholder="demo111@gmail.com"
               className="w-full px-4 py-3 border-2 border-gray-300 font-poppins focus:outline-none focus:border-vanigo-green transition-all duration-300"
             />
           </div>
@@ -78,7 +78,7 @@ function LoginPage() {
               required
               value={formData.password}
               onChange={(e) => setFormData({...formData, password: e.target.value})}
-              placeholder="Enter your password"
+              placeholder="demo@111"
               className="w-full px-4 py-3 border-2 border-gray-300 font-poppins focus:outline-none focus:border-vanigo-green transition-all duration-300"
             />
           </div>
